@@ -28,7 +28,7 @@ export class UserComponent implements OnInit ,OnDestroy{
     this.userService.emitUsers();
   }
   ngOnDestroy(): void {
-
     this.userSubscription.unsubscribe();
   }
 }
+
