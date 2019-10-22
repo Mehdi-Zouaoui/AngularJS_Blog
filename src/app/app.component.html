@@ -1,0 +1,23 @@
+<style>
+  a {
+    color: white;
+  }
+  .isTrending {
+    background: blue;
+  }
+</style>
+<nav class=" navbar-expand-lg bg-dark border border-dark">
+  <div class="container-fluid">
+    <ul class="navbar nav justify-content-center align-self-end ">
+      <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="blog">Blog</a></li>
+      <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="auth">Authentification</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="edit/create">Créer son
+        post</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+

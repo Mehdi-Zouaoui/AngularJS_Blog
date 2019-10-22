@@ -1,0 +1,38 @@
+<div class="m-auto post_container col-4 border border-dark rounded d-flex justify-content-around flex-column position-relative"
+     [ngClass]="{'isTrending bg-green' :postLikes > 0,
+                               'isntTrending bg-red':postLikes < 0,
+                               'isNew' : postLikes === 0}"
+>
+  <h2 class=" ml-5">{{postName}}</h2>
+  <p class=" ml-5 w-75">{{postContent}}</p>
+
+  <div class=" ml-5 btn_container d-flex w-50 m-2">
+    <button class="btn btn-success mr-2" (click)="likeCounter()"> Love it !</button>
+    <button class="btn btn-danger" (click)="dislikeCounter()"> Don't love it !</button>
+  </div>
+  <div class="heart position-absolute"
+       style="right :80px ; bottom : 11px; background: url('https://img.icons8.com/office/30/000000/hearts.png'); background-size: cover; height: 30px ; width: 30px;">
+    <div class="nmbrLikes" style="margin: -5px 0 0px 48px;
+    font-size: 24px;
+    font-weight: bold;">{{postLikes}}</div>
+  </div>
+  <div class="date position-absolute " style="top : 5px ; right : 5px">{{postDate}}</div>
+</div>
+
+<!--<div class="container col-12 d-flex justify-content-around">-->
+
+<!--  <div class="create_container ">-->
+<!--    <div class="createNewPost" id="send" *ngFor=" let item of posts">-->
+<!--      <label> Titre : </label>-->
+<!--      <input type="text" name="titre" class="Titlte form-control" [(ngModel)]="item.title">-->
+<!--      <label> Contenu du post : </label>-->
+<!--      <input type="text" name="contenu" class="contet form-control" [(ngModel)]="item.content">-->
+<!--      <button class="sending_btn btn btn-warning " (click)="sendingPost()">Envoyer</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="blog_container w-50 ">-->
+
+
+<!--  </div>-->
+<!--</div>-->
+
