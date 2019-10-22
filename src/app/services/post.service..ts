@@ -1,8 +1,10 @@
+import { Subject } from 'rxjs';
 export class PostService{
 
-
-  posts = [
+  postsSubject = new Subject<any[]>();
+  private posts = [
     {
+
       title: 'Bijour',
       content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto nemo officiis rem sint? Dicta doloremque, possimus.\n',
       loveIts: '0',
@@ -18,6 +20,9 @@ export class PostService{
     }
   ];
 
+  emitPostSubject(){
+    this.postsSubject.next(this.posts.slice());
+  }
   onLike = function (i:number) {
 
     console.log('like :',this.posts[i].loveIts=  this.posts[i].loveIts*1 + 1);

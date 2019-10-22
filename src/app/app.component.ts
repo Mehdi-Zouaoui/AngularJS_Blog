@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {PostService} from './services/post.service.';
+import {Observable, Subscription} from "rxjs";
+import {interval} from "rxjs";
+import {take} from "rxjs/operators";
 
 
 @Component({
@@ -7,13 +10,32 @@ import {PostService} from './services/post.service.';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit , OnDestroy{
+  secondes: number;
+  counterSub: Subscription;
 
-  constructor(private postService : PostService){
+  constructor() {
+  }
+
+  ngOnInit() {
+    const counters = interval(1000);
+    this.counterSub = counters.subscribe((value: number) => {
+        this.secondes = value;
+      },
+      (error: any) => {
+        console.log('RIP UNE ERREUR EST LA !');
+      },
+      () => {
+        console.log('DONE');
+      }
+    )
+
 
   }
-  ngOnInit(){
-
+  ngOnDestroy(){
+    this.counterSub.unsubscribe();
   }
+
+
 
 }

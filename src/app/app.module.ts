@@ -10,6 +10,8 @@ import {AppareilViewComponent} from './appareil-view/appareil-view.component';
 import {RouterModule, Routes} from "@angular/router";
 import {EditPostComponent} from './edit-component/edit_post_component';
 import{AuthService} from './services/auth.service'
+import {UserService} from "./services/user.service";
+import { UserComponent } from './user/user.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +27,10 @@ const appRoutes: Routes = [
     component: EditPostComponent
   },
   {
+    path: 'users',
+    component: UserComponent
+  },
+  {
     path: '',
     component: AuthComponent
   }
@@ -36,7 +42,8 @@ const appRoutes: Routes = [
     PostComponent,
     AuthComponent,
     AppareilViewComponent,
-    EditPostComponent
+    EditPostComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     PostService,
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
