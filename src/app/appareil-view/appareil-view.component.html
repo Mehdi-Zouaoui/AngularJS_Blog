@@ -1,4 +1,5 @@
 <h1 class="text-center m-5"> Posts</h1>
+<div class="app_container ">
 <app-posts class="m-5" *ngFor="let post of posts; let i =index"
            [postIndex]="i"
            [postName]='post.title'
@@ -7,5 +8,10 @@
            [postDate]="post.created_at | date :'short'"
           >
 </app-posts>
+  <div class="button_container d-flex justify-content-around col-4 m-auto">
+<button class ="btn btn-warning col-4" (click)="onSave()"> Envoyer les données sur le serveur</button>
+<button class ="btn btn-danger col-4" (click)="onFetch()"> Récuperer les donées depuis le serveur</button>
+  </div>
+</div>
 
 

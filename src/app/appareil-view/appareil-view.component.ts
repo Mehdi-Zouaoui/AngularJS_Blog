@@ -35,6 +35,11 @@ export class AppareilViewComponent implements OnInit , OnDestroy {
   ngOnDestroy(){
     this.postsSubscription.unsubscribe();
   }
-
+  onSave(){
+    this.postService.savePostsToServer();
+  }
+  onFetch(){
+    this.postService.getPostsFromServer();
+  }
 
 }

@@ -6,7 +6,7 @@ export class UserService{
   // private users:User[];
   userSubject = new Subject<User[]>();
   private users: User[] = [
-    new User('Will', 'Alexander', 'will@will.com', ['jus d\'orange', 'coder', 'boire du café'] , 'Male')
+    new User('Will', 'Alexander', 'will@will.com', 'male' , ['foot'])
   ];
 
   emitUsers(){

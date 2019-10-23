@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {PostComponent} from './post_component/post_component';
@@ -12,6 +12,8 @@ import {EditPostComponent} from './edit-component/edit_post_component';
 import{AuthService} from './services/auth.service'
 import {UserService} from "./services/user.service";
 import { UserComponent } from './user/user.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {
@@ -31,6 +33,10 @@ const appRoutes: Routes = [
     component: UserComponent
   },
   {
+    path:'new-user',
+    component: NewUserComponent
+  },
+  {
     path: '',
     component: AuthComponent
   }
@@ -43,13 +49,16 @@ const appRoutes: Routes = [
     AuthComponent,
     AppareilViewComponent,
     EditPostComponent,
-    UserComponent
+    UserComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     PostService,
