@@ -1,0 +1,20 @@
+
+<div class="container" style="justify-self: start !important;">
+      <div routerLinkActive="active" clas="nav-item" *ngIf="!isAuth">
+        <a routerLink="auth/signup" class="nav-link text-warning ">Créer un compte</a>
+      </div>
+      <div routerLinkActive="active" class="nav-item" *ngIf="!isAuth">
+        <a routerLink="auth/signin" class="nav-link text-warning">Connexion</a>
+      </div>
+      <div>
+        <a (click)="onSignOut()"
+           class="text-warning"
+           style="cursor:pointer"
+           *ngIf="isAuth"
+           [ngClass]="{'deco':isAuth}">Déconnexion</a>
+      </div>
+</div>
+<p style="color : white ; top : 15px ;left : 0" class="position-absolute" *ngIf ="isAuth" > Vous êtes connecté depuis {{secondes}} secondes </p>
+
+
+

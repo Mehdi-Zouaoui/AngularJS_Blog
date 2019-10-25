@@ -14,10 +14,25 @@ import {UserService} from "./services/user.service";
 import { UserComponent } from './user/user.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { HeaderComponent } from './header/header.component';
+import {AuthGuardService} from "./services/authguard.service";
+
+
 
 const appRoutes: Routes = [
   {
+    path : "auth/signup",
+    component:SignupComponent
+  },
+  {
+    path:'auth/signin',
+    component : SigninComponent
+  },
+  {
     path: "blog",
+    canActivate:[AuthGuardService],
     component: AppareilViewComponent
   },
   {
@@ -26,10 +41,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'edit/create',
+    canActivate:[AuthGuardService],
     component: EditPostComponent
   },
   {
     path: 'users',
+    canActivate:[AuthGuardService],
     component: UserComponent
   },
   {
@@ -39,6 +56,8 @@ const appRoutes: Routes = [
   {
     path: '',
     component: AuthComponent
+  },{
+  path :'**',redirectTo: 'books'
   }
 ]
 
@@ -50,7 +69,10 @@ const appRoutes: Routes = [
     AppareilViewComponent,
     EditPostComponent,
     UserComponent,
-    NewUserComponent
+    NewUserComponent,
+    SignupComponent,
+    SigninComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +83,7 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [
+    AuthGuardService,
     PostService,
     AuthService,
     UserService

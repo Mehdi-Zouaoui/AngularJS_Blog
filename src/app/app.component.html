@@ -6,15 +6,22 @@
     background: blue;
   }
 </style>
+
 <nav class=" navbar-expand-lg bg-dark border border-dark">
   <div class="container-fluid">
-    <ul class="navbar nav justify-content-center align-self-end ">
+    <ul class="navbar nav justify-content-between align-self-end ">
+
+        <li>
+      <app-header>
+
+      </app-header>
+        </li>
+      <div class="d-flex w-50 m-auto justify-content-center">
       <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="blog">Blog</a></li>
-      <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="auth">Authentification</a></li>
       <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="edit/create">Créer son post</a></li>
       <li routerLinkActive="active" class="nav-item"><a class="nav-link" routerLink="users">Utilisateurs</a> </li>
+      </div>
     </ul>
-    <p style="color : white"> Vous êtes connecté depuis {{secondes}} secondes </p>
   </div>
 </nav>
 

@@ -4,6 +4,9 @@
                                'isNew' : postLikes === 0}"
 >
   <h2 class=" ml-5">{{postName}}</h2>
+  <button class="delete btn bg-danger btn-danger position-relative d-flex justify-self-start align-self-end"
+          style=" width: 25px; height: 25px; top : 0 ; right: 0"
+          (click)="onDeletePost(post)">X</button>
   <p class=" ml-5 w-75">{{postContent}}</p>
 
   <div class=" ml-5 btn_container d-flex w-50 m-2">

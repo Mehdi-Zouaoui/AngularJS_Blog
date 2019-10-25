@@ -1,0 +1,26 @@
+<div class="row mt-5">
+  <div class="w-50 m-auto">
+    <h2 class="text-center">Connexion</h2>
+    <form class="position-relative" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Adresse mail</label>
+        <input type="text"
+               id="email"
+               class="form-control"
+               formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password"
+               id="password"
+               class="form-control"
+               formControlName="password">
+      </div>
+      <button class="btn btn-primary position-absolute w-25"
+              style="right:0;"
+              type="submit"
+              [disabled]="signInForm.invalid"> Se connecter </button>
+    </form>
+    <p class="text-danger">{{ errorMessage }}</p>
+  </div>
+</div>

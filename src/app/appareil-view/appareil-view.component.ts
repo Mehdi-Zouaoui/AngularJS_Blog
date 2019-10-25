@@ -19,6 +19,7 @@ export class AppareilViewComponent implements OnInit , OnDestroy {
   ngOnInit() {
     this.postsSubscription = this.postService.postsSubject.subscribe((posts: any[]) => {
         this.posts = posts;
+
       }
     );
     this.postService.emitPostSubject();
